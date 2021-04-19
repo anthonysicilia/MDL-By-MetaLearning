@@ -1,0 +1,404 @@
+{
+    "model": {
+        "name": "unet",
+        "params": {}
+    },
+    "loss": {
+        "name": "dsc-loss",
+        "params": {
+            "dsc_loss_coeff": 1.0
+        }
+    },
+    "optim": {
+        "name": "sgd",
+        "params": {
+            "lr": 0.01,
+            "momentum": 0.9
+        }
+    },
+    "update_procedure": {
+        "name": "moving_update",
+        "params": {
+            "agg": true,
+            "style": "simple",
+            "hypers": {
+                "direction": "<"
+            }
+        }
+    },
+    "uproc_state_init": "moving_init",
+    "validation_procedure": {
+        "name": "validate",
+        "params": {}
+    },
+    "max_epochs": 500,
+    "patience": 20,
+    "parallel": false,
+    "folds": [
+        {
+            "trainset": {
+                "name": "mixed",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-1/FL_paths_ws.txt",
+                        "paths/fold-2/FL_paths_ws.txt",
+                        "paths/fold-3/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-1/T1_paths_ws.txt",
+                        "paths/fold-2/T1_paths_ws.txt",
+                        "paths/fold-3/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-1/label_paths.txt",
+                        "paths/fold-2/label_paths.txt",
+                        "paths/fold-3/label_paths.txt"
+                    ],
+                    "augment": true,
+                    "num_fl": 12,
+                    "agg": true
+                },
+                "loader_params": {
+                    "batch_size": 8,
+                    "drop_last": true,
+                    "num_workers": 4,
+                    "shuffle": true
+                }
+            },
+            "valset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-4/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-4/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-4/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            },
+            "testset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-0/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-0/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-0/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            }
+        },
+        {
+            "trainset": {
+                "name": "mixed",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-2/FL_paths_ws.txt",
+                        "paths/fold-3/FL_paths_ws.txt",
+                        "paths/fold-4/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-2/T1_paths_ws.txt",
+                        "paths/fold-3/T1_paths_ws.txt",
+                        "paths/fold-4/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-2/label_paths.txt",
+                        "paths/fold-3/label_paths.txt",
+                        "paths/fold-4/label_paths.txt"
+                    ],
+                    "augment": true,
+                    "num_fl": 12,
+                    "agg": true
+                },
+                "loader_params": {
+                    "batch_size": 8,
+                    "drop_last": true,
+                    "num_workers": 4,
+                    "shuffle": true
+                }
+            },
+            "valset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-0/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-0/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-0/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            },
+            "testset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-1/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-1/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-1/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            }
+        },
+        {
+            "trainset": {
+                "name": "mixed",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-3/FL_paths_ws.txt",
+                        "paths/fold-4/FL_paths_ws.txt",
+                        "paths/fold-0/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-3/T1_paths_ws.txt",
+                        "paths/fold-4/T1_paths_ws.txt",
+                        "paths/fold-0/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-3/label_paths.txt",
+                        "paths/fold-4/label_paths.txt",
+                        "paths/fold-0/label_paths.txt"
+                    ],
+                    "augment": true,
+                    "num_fl": 12,
+                    "agg": true
+                },
+                "loader_params": {
+                    "batch_size": 8,
+                    "drop_last": true,
+                    "num_workers": 4,
+                    "shuffle": true
+                }
+            },
+            "valset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-1/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-1/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-1/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            },
+            "testset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-2/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-2/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-2/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            }
+        },
+        {
+            "trainset": {
+                "name": "mixed",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-4/FL_paths_ws.txt",
+                        "paths/fold-0/FL_paths_ws.txt",
+                        "paths/fold-1/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-4/T1_paths_ws.txt",
+                        "paths/fold-0/T1_paths_ws.txt",
+                        "paths/fold-1/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-4/label_paths.txt",
+                        "paths/fold-0/label_paths.txt",
+                        "paths/fold-1/label_paths.txt"
+                    ],
+                    "augment": true,
+                    "num_fl": 12,
+                    "agg": true
+                },
+                "loader_params": {
+                    "batch_size": 8,
+                    "drop_last": true,
+                    "num_workers": 4,
+                    "shuffle": true
+                }
+            },
+            "valset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-2/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-2/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-2/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            },
+            "testset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-3/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-3/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-3/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            }
+        },
+        {
+            "trainset": {
+                "name": "mixed",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-0/FL_paths_ws.txt",
+                        "paths/fold-1/FL_paths_ws.txt",
+                        "paths/fold-2/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-0/T1_paths_ws.txt",
+                        "paths/fold-1/T1_paths_ws.txt",
+                        "paths/fold-2/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-0/label_paths.txt",
+                        "paths/fold-1/label_paths.txt",
+                        "paths/fold-2/label_paths.txt"
+                    ],
+                    "augment": true,
+                    "num_fl": 12,
+                    "agg": true
+                },
+                "loader_params": {
+                    "batch_size": 8,
+                    "drop_last": true,
+                    "num_workers": 4,
+                    "shuffle": true
+                }
+            },
+            "valset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-3/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-3/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-3/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            },
+            "testset": {
+                "name": "paired",
+                "params": {
+                    "fl_paths": [
+                        "paths/fold-4/FL_paths_ws.txt"
+                    ],
+                    "t1_paths": [
+                        "paths/fold-4/T1_paths_ws.txt"
+                    ],
+                    "label_paths": [
+                        "paths/fold-4/label_paths.txt"
+                    ],
+                    "augment": false
+                },
+                "loader_params": {
+                    "batch_size": 5,
+                    "drop_last": false,
+                    "num_workers": 4,
+                    "shuffle": false
+                }
+            }
+        }
+    ]
+}
