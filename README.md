@@ -25,7 +25,8 @@ scheme assumed in this bash script
 
 If you want to run experiments using your 
 own config files, you can do so by 
-entering the following in the command line 
+entering the following in the command line
+
 `python3 train.py <CONFIG_DIRECTORY> <GPU_IDX> <NUM_TRIALS>`
 
 You can follow the appropriate calls if your 
