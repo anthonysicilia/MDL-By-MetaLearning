@@ -14,8 +14,8 @@ the appropriate contents of these file paths in `fake-paths/example-fold`.
 
 Following this, the `run.sh` bash script contained in the 
 generated experiment folder can be run to do all
-experiments listed in the folder (each experiment 
-will be associated with its own config directory).
+experiments listed in the folder (note, each experiment 
+is associated with its own config subdirectory).
 We provide an example of the default experiment folder output
 by this script in `example-experiment-config`.
 Depending on the number of available GPUs in your system,
