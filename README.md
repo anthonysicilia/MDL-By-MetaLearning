@@ -44,7 +44,6 @@ but are happy to help in this capacity.
 
 Finally, if you make use of our code
 or techniques, please cite our paper.
-
 Thanks.
 
 
