@@ -1,0 +1,2 @@
+<fake_example_subject_a>_FLAIR.nii.gz
+<fake_example_subject_b>_FLAIR.nii.gz

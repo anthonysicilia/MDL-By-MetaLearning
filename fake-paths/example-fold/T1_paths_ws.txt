@@ -1,0 +1,2 @@
+<fake_example_subject_a>_T1.nii.gz
+<fake_example_subject_b>_T1.nii.gz

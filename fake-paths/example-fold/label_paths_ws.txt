@@ -1,0 +1,2 @@
+<fake_example_subject_a>_LABEL.nii.gz
+<fake_example_subject_b>_LABEL.nii.gz
