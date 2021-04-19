@@ -29,10 +29,10 @@ calling the following in your terminal:
 
 `python3 train.py <CONFIG_DIRECTORY> <GPU_IDX> <NUM_TRIALS>`
 
-You can follow the appropriate calls if your 
+You can follow the appropriate subcalls if your 
 research requires modifying our pipeline.
 Most of the logic is contained in 
-`trainer.py` and `runner.py` with other 
+`train.py` and `runner.py` with other 
 python files containing the necessary 
 helper functions.
 
