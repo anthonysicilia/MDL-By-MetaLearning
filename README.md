@@ -14,8 +14,11 @@ the appropriate contents of these file paths in `fake-paths/example-fold`.
 
 Following this, the `run.sh` bash script contained in the 
 generated experiment folder can be run to do all
-experiments listed in the folder. Depending 
-on the number of available GPUs in your system,
+experiments listed in the folder (each experiment 
+will be associated with its own config directory).
+We provide an example of the default experiment folder output
+by this script in `example-experiment-config`.
+Depending on the number of available GPUs in your system,
 you may need to modify the <GPU_IDX>
 scheme assumed in this bash script
 (more details below).
@@ -23,7 +26,6 @@ scheme assumed in this bash script
 If you want to run experiments using your 
 own config files, you can do so by 
 entering the following in the command line 
-
 `python3 train.py <CONFIG_DIRECTORY> <GPU_IDX> <NUM_TRIALS>`
 
 You can follow the appropriate calls if your 
