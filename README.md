@@ -21,7 +21,7 @@ by this script in `example-experiment-config`.
 Depending on the number of available GPUs in your system,
 you may need to modify the <GPU_IDX>
 scheme assumed in this bash script
-(more details on how to modify calls to `train.py` below).
+We give more details on how to modify calls to `train.py` next.
 
 If you want to run experiments using your 
 own config files, you can do so by 
